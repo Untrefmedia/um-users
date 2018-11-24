@@ -1,0 +1,11 @@
+{
+    "name": "Untrefmedia/UMUsers",
+    "authors": [
+        {
+            "name": "Ariel Kuhn",
+            "email": "akuhn@untref.edu.ar"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {}
+}
