@@ -11,6 +11,9 @@ class UMUsersProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->publishes([
+            __DIR__.'/../config/um-users.php' => config_path('um-users.php'),
+        ], 'config');
     }
 
     /**

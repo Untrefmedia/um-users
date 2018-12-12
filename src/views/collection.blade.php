@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('admin.layouts.app')
 
 @section('title', 'Dashboard')
 
@@ -9,21 +9,23 @@
 @stop
 
 @section('content')
-    <div class="app-content" style="background: #fafafa;padding: 20px;">
+    <div class="crud-container">
+        <div class="app-content" style="background: #fafafa;padding: 20px;">
 
 
-        <table class="table table-bordered" id="users-table">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-        </table>
+            <table class="table table-bordered" id="users-table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 @stop
 
@@ -48,9 +50,5 @@
     </script>
 @stop
 
-@section('css')
-    {{--<link rel="stylesheet" href="/css/admin_custom.css">--}}
 
-
-@stop
 

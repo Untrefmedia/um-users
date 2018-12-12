@@ -3,6 +3,7 @@
 
 namespace Untrefmedia\UMUsers;
 
+use App\User;
 use Illuminate\Routing\Controller as BaseController;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\URL;
@@ -25,10 +26,12 @@ class UMUsersController extends BaseController
      */
     public function anyData()
     {
-        return Datatables::of(\App\User::query())
+        return Datatables::of(User::query())
             ->addColumn('action', function ($user) {
             return '<a href="'.URL::to("/").'/admin/users/'.$user->id.'/edit   " class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
         })->make(true);
     }
-
+    public function edit($id){
+        return view('umusers::edit',[ 'user'=>User::find($id)]);
+    }
 }
