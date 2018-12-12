@@ -1,5 +1,6 @@
 {
     "name": "Untrefmedia/UMUsers",
+    "description": "users crud for um-admin",
     "authors": [
         {
             "name": "Ariel Kuhn",
