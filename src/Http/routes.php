@@ -1,7 +1,7 @@
 <?php
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware'=>['web', 'admin', 'auth:admin']], function () {
     Route::get('users', 'Untrefmedia\UMUsers\UMUsersController@getIndex')
         ->name('datatables');
     Route::get('users.data', 'Untrefmedia\UMUsers\UMUsersController@anyData')

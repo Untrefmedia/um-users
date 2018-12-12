@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('umadmin::admin.layouts.app')
 
 @section('title', 'Edit User')
 

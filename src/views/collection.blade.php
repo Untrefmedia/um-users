@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('umadmin::admin.layouts.app')
 
 @section('title', 'Dashboard')
 
@@ -11,8 +11,6 @@
 @section('content')
     <div class="crud-container">
         <div class="app-content" style="background: #fafafa;padding: 20px;">
-
-
             <table class="table table-bordered" id="users-table">
                 <thead>
                 <tr>
