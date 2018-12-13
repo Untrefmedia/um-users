@@ -1,6 +1,7 @@
 {
     "name": "untrefmedia/um-users",
     "description": "users crud for um-admin",
+    "license": "MIT",
     "authors": [
         {
             "name": "Ariel Kuhn",
