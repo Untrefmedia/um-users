@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Untrefmedia\UMUsers;
+namespace Untrefmedia\UMUsers\App\Http\Controllers;
 
 use App\User;
 use Illuminate\Routing\Controller as BaseController;

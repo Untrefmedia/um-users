@@ -12,7 +12,7 @@ class UMUsersProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/um-users.php' => config_path('um-users.php'),
+            __DIR__.'/config/um-users.php' => config_path('um-users.php'),
         ], 'config');
     }
 
@@ -22,7 +22,7 @@ class UMUsersProvider extends ServiceProvider
     public function register()
     {
 
-        require __DIR__ . '/Http/routes.php';
+        require __DIR__ . '/routes/web.php';
         $this->loadViewsFrom(__DIR__ . '/views', 'umusers');
 
 
