@@ -30,13 +30,7 @@ class UMUsersController extends BaseController
      */
     public function create()
     {
-        $type = ['User' => 'User', 'Admin' => 'Admin'];
-
-        $args = [
-            'type' => $type
-        ];
-
-        return view('umusers::create', $args);
+        return view('umusers::create');
     }
 
     /**
@@ -47,19 +41,7 @@ class UMUsersController extends BaseController
      */
     public function store(UserRequest $request)
     {
-        switch ($request->type) {
-            case 'User':
-                $user = new User();
-                break;
-
-            case 'Admin':
-                $user = new Admin();
-                break;
-
-            default:
-                $user = new User();
-                break;
-        }
+        $user = new User();
 
         $user->name     = $request->name;
         $user->password = Hash::make($request->password);
@@ -78,7 +60,11 @@ class UMUsersController extends BaseController
     {
         $user = User::find($id);
 
-        return view('umusers::edit', compact('user'));
+        $args = [
+            'user' => $user
+        ];
+
+        return view('umusers::edit', $args);
     }
 
     /**
@@ -89,33 +75,19 @@ class UMUsersController extends BaseController
      * @return \Illuminate\Http\Response
      */
 
-// public function update(UserRequest $request, $id)
+    public function update(UserRequest $request, $id)
+    {
+        $user = User::find($id);
 
-// {
+        $user->name  = $request->user;
+        $user->email = $request->email;
+        $user->save();
 
-//     $user        = User::find($id);
+        Session::flash('guardado', 'Editado correctamente');
 
-//     $user->name  = $request->user;
+        return back();
 
-//     $user->email = $request->email;
-
-//     $user->save();
-
-//     $userdata          = Userdata::where('user_id', $id)->get()->first();
-
-//     $userdata->name    = $request->name;
-
-//     $userdata->surname = $request->surname;
-
-//     $userdata->save();
-
-//     $user->syncRoles($request->rol);
-
-//     Session::flash('guardado', 'Editado correctamente');
-
-//     return back();
-
-// }
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -124,13 +96,16 @@ class UMUsersController extends BaseController
      * @return \Illuminate\Http\Response
      */
 
-// public function destroy($id)
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
 
-// {
+        Session::flash('guardado', 'Editado correctamente');
 
-//     //
+        return back();
 
-// }
+    }
 
     /**
      * @return mixed
@@ -140,8 +115,20 @@ class UMUsersController extends BaseController
     {
         return Datatables::of(User::query())
             ->addColumn('action', function ($user) {
-                return '<a href="' . URL::to("/") . '/admin/users/' . $user->id . '/edit   " class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $button_edit = '<a href="' . URL::to("/") . '/admin/users/' . $user->id . '/edit   " class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+
+                $button_delete =
+                '<form method="post" action="users/' . $user->id . '">
+                    ' . csrf_field() . '
+                    <input name="_method" type="hidden" value="DELETE">
+
+                    <button type="submit" class="btn btn-xs btn-danger">
+                        <i class="glyphicon glyphicon-remove"></i> Delete
+                    </button>
+                </form>';
+
+                return '<span style="display: inline-block;">' . $button_edit . '</span> <span style="display: inline-block;">' . $button_delete . '</span>';
+
             })->make(true);
     }
-
 }

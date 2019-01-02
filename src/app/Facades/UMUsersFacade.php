@@ -1,6 +1,8 @@
 <?php
 namespace Untrefmedia\UMUsers;
+
 use Illuminate\Support\Facades\Facade;
+
 /**
  * @see \Spatie\Skeleton\SkeletonClass
  */

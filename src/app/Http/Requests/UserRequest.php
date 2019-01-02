@@ -23,27 +23,12 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        switch ($this->type) {
-            case 'User':
-                $table = 'users';
-                break;
-
-            case 'Admin':
-                $table = 'admins';
-                break;
-
-            default:
-                $table = 'users';
-                break;
-        }
-
         switch ($this->method()) {
             // crear
             case 'POST':
                 return [
                     'name'     => 'required',
-                    'type'     => 'required',
-                    'email'    => 'required|email|unique:' . $table . ',email',
+                    'email'    => 'required|email|unique:users,email',
                     'password' => 'required'
 
                 ];
@@ -53,8 +38,7 @@ class UserRequest extends FormRequest
             case 'PATCH':
                 return [
                     'name'  => 'required',
-                    'email' => 'required|email|unique:' . $table . ',email,' . $this->all()['id'],
-                    'type'  => 'required'
+                    'email' => 'required|email|unique:users,email,' . $this->all()['id']
                 ];
                 break;
 

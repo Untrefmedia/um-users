@@ -59,14 +59,7 @@
             <div class="col-sm-9">
                 {!! Form::password('password', ['class' => 'form-control']) !!}
             </div>
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('', 'Tipo:', ['class' => 'col-sm-3']) !!}
-            <div class="col-sm-9">
-                {{ Form::select('type', $type, null, ['placeholder' => 'Seleccionar']) }}
-            </div>
-        </div>        
+        </div>  
 
         <div class="form-group text-center">
             {!! Form::submit() !!}<br>
