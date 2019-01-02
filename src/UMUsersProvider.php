@@ -23,7 +23,7 @@ class UMUsersProvider extends ServiceProvider
     {
 
         require __DIR__ . '/routes/web.php';
-        $this->loadViewsFrom(__DIR__ . '/views', 'umusers');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'umusers');
 
 
 
