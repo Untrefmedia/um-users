@@ -4,18 +4,18 @@ return [
     'menu' => [
         [
             'text'        => 'Users',
-            'url'         => 'admin/users',
+            'url'         => 'admin/user',
             'icon'        => 'file',
             'label'       => null,
             'label_color' => 'success',
             'submenu'     => [
                 [
                     'text' => 'List',
-                    'url'  => 'admin/users'
+                    'url'  => 'admin/user'
                 ],
                 [
                     'text' => 'Create',
-                    'url'  => 'admin/users/create'
+                    'url'  => 'admin/user/create'
                 ]
             ]
         ]
