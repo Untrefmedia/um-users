@@ -20,7 +20,7 @@ class UserController extends BaseController
      */
     public function index()
     {
-        return view('umusers::collection');
+        return view('umusers::models.user.collection');
     }
 
     /**
@@ -30,7 +30,7 @@ class UserController extends BaseController
      */
     public function create()
     {
-        return view('umusers::create');
+        return view('umusers::models.user.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class UserController extends BaseController
             'user' => $user
         ];
 
-        return view('umusers::edit', $args);
+        return view('umusers::models.user.edit', $args);
     }
 
     /**
