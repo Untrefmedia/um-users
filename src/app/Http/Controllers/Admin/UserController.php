@@ -1,6 +1,6 @@
 <?php
 
-namespace Untrefmedia\UMUsers\App\Http\Controllers;
+namespace Untrefmedia\UMUsers\App\Http\Controllers\Admin;
 
 use App\Admin;
 use App\User;
@@ -11,7 +11,7 @@ use Session;
 use Untrefmedia\UMUsers\App\Http\Requests\UserRequest;
 use Yajra\Datatables\Datatables;
 
-class UMUsersController extends BaseController
+class UserController extends BaseController
 {
     /**
      * Displays datatables front end view
@@ -115,10 +115,10 @@ class UMUsersController extends BaseController
     {
         return Datatables::of(User::query())
             ->addColumn('action', function ($user) {
-                $button_edit = '<a href="' . URL::to("/") . '/admin/users/' . $user->id . '/edit   " class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+                $button_edit = '<a href="' . URL::to("/") . '/admin/user/' . $user->id . '/edit   " class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
 
                 $button_delete =
-                '<form method="post" action="users/' . $user->id . '">
+                '<form method="post" action="user/' . $user->id . '">
                     ' . csrf_field() . '
                     <input name="_method" type="hidden" value="DELETE">
 

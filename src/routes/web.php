@@ -1,6 +1,6 @@
 <?php
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'admin', 'auth:admin']], function () {
-    Route::resource('users', 'Untrefmedia\UMUsers\App\Http\Controllers\UMUsersController');
-    Route::get('users.dataList', 'Untrefmedia\UMUsers\App\Http\Controllers\UMUsersController@dataList')->name('users.dataList');
+    Route::resource('user', 'Untrefmedia\UMUsers\App\Http\Controllers\Admin\UserController');
+    Route::get('user.dataList', 'Untrefmedia\UMUsers\App\Http\Controllers\Admin\UserController@dataList')->name('user.dataList');
 });
