@@ -101,7 +101,7 @@ class UserController extends BaseController
         $user = User::find($id);
         $user->delete();
 
-        Session::flash('guardado', 'Editado correctamente');
+        Session::flash('guardado', 'Eliminado correctamente');
 
         return back();
 
