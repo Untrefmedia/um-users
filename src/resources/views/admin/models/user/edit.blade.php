@@ -56,13 +56,6 @@
             </div>
         </div>
 
-        {{-- <div class="form-group">
-            {!! Form::label('', 'Password:', ['class' => 'col-sm-3']) !!}
-            <div class="col-sm-9">
-                {!! Form::password('password', ['class' => 'form-control']) !!}
-            </div>
-        </div> --}} 
-
         <div class="form-group text-center">
             {!! Form::submit() !!}<br>
         </div>
