@@ -17,7 +17,8 @@ return [
                     'text' => 'Create',
                     'url'  => 'admin/user/create'
                 ]
-            ]
+            ],
+            'can'         => 'venue-create' //momentaneo hasta crear el permiso correspondiente
         ]
     ]
 ];
